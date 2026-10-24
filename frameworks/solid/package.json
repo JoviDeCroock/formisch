@@ -73,7 +73,7 @@
     "@solidjs/testing-library": "^0.8.10",
     "@testing-library/jest-dom": "^6.6.0",
     "@types/node": "24.0.13",
-    "@vitest/coverage-v8": "^4.1.7",
+    "@vitest/coverage-v8": "^4.1.12",
     "eslint": "^9.31.0",
     "eslint-plugin-solid": "^0.14.5",
     "jsdom": "^26.1.0",
@@ -84,9 +84,9 @@
     "tsup": "^8.5.0",
     "tsup-preset-solid": "^2.2.0",
     "typescript": "^5.8.3",
-    "valibot": "^1.4.1",
+    "valibot": "^1.4.2",
     "vite-plugin-solid": "^2.11.6",
-    "vitest": "4.1.7"
+    "vitest": "4.1.12"
   },
   "peerDependencies": {
     "solid-js": ">=1.6 <2",
