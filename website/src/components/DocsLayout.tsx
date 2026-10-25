@@ -2,7 +2,7 @@ import {
   $,
   component$,
   type QRL,
-  type ReadonlySignal,
+  type Signal,
   Slot,
   useComputed$,
 } from '@qwik.dev/core';
@@ -12,6 +12,7 @@ import {
   useLocation,
 } from '@qwik.dev/router';
 import clsx from 'clsx';
+import { useMenu } from '~/hooks';
 import {
   ArrowLeftIcon,
   ArrowRightIcon,
@@ -21,7 +22,6 @@ import {
   PenIcon,
 } from '~/icons';
 import { useChapters, useChaptersToggle } from '~/routes/plugin@chapters';
-import { useMenu } from '~/routes/plugin@menu';
 import { trackEvent } from '~/utils';
 import { Chapters } from './Chapters';
 import { Credits } from './Credits';
@@ -199,7 +199,7 @@ type NavButtonsProps = {
   markdownPath: string | undefined;
   prevPage: ContentMenu | undefined;
   nextPage: ContentMenu | undefined;
-  chapters?: ReadonlySignal<boolean>;
+  chapters?: Signal<boolean>;
   chaptersToggle?: QRL<() => void>;
 };
 

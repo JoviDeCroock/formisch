@@ -7,6 +7,7 @@ import {
 } from '@qwik.dev/core';
 import { useLocation } from '@qwik.dev/router';
 import clsx from 'clsx';
+import MENU_HREFS from 'virtual:menu-hrefs';
 import { useFocusTrap } from '~/hooks';
 import { AngleUpIcon } from '~/icons';
 import type { Framework } from '~/routes/plugin@framework';
@@ -17,7 +18,6 @@ import {
   useFramework,
   useSetFramework,
 } from '~/routes/plugin@framework';
-import { useOtherMenuHrefs } from '~/routes/plugin@menu';
 import { Link } from './Link';
 
 type FrameworkPickerProps = {
@@ -30,7 +30,6 @@ type FrameworkPickerProps = {
 export const FrameworkPicker = component$<FrameworkPickerProps>((props) => {
   // Use location and framework
   const location = useLocation();
-  const otherMenuHrefs = useOtherMenuHrefs();
   const framework = useFramework();
   const setFramework = useSetFramework();
 
@@ -64,8 +63,8 @@ export const FrameworkPicker = component$<FrameworkPickerProps>((props) => {
       `/${targetFramework}/`
     );
 
-    // If path exists in other menus, return it
-    if (otherMenuHrefs.value.includes(newPathname)) {
+    // If path exists in a menu, return it
+    if (MENU_HREFS.has(newPathname)) {
       return newPathname;
     }
 
