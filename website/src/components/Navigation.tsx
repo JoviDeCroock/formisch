@@ -1,12 +1,12 @@
 import {
   component$,
-  type ReadonlySignal,
+  type Signal,
   useSignal,
   useVisibleTask$,
 } from '@qwik.dev/core';
 import { type ContentMenu, useLocation } from '@qwik.dev/router';
 import clsx from 'clsx';
-import { useMenu } from '~/routes/plugin@menu';
+import { useMenu } from '~/hooks';
 import { FrameworkPicker } from './FrameworkPicker';
 import { Link } from './Link';
 
@@ -42,7 +42,7 @@ export const Navigation = component$<NavigationProps>((props) => {
 });
 
 export type NavItemProps = {
-  navElement: ReadonlySignal<HTMLElement | undefined>;
+  navElement: Signal<HTMLElement | undefined>;
   text: string;
   items?: ContentMenu[];
 };

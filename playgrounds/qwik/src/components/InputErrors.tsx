@@ -1,9 +1,5 @@
-import {
-  component$,
-  ReadonlySignal,
-  useSignal,
-  useTask$,
-} from '@qwik.dev/core';
+import type { ReadonlySignal } from '@formisch/qwik';
+import { component$, useSignal, useTask$ } from '@qwik.dev/core';
 import { isBrowser } from '@qwik.dev/core/build';
 import { Expandable } from './Expandable';
 
@@ -21,7 +17,7 @@ export const InputErrors = component$(({ name, errors }: InputErrorProps) => {
 
   // Freeze error while element collapses to prevent UI from jumping
   useTask$(({ track, cleanup }) => {
-    const nextErrors = track(errors);
+    const nextErrors = track(() => errors.value);
     if (isBrowser && !nextErrors) {
       const timeout = setTimeout(() => (frozenError.value = null), 200);
       cleanup(() => clearTimeout(timeout));
